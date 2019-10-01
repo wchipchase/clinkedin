@@ -36,11 +36,5 @@ namespace ClinkedIn.Controllers
         public void Put(int id, [FromBody] string value)
         {
         }
-
-        // DELETE: api/ApiWithActions/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
     }
 }
