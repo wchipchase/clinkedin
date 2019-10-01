@@ -7,5 +7,7 @@ namespace ClinkedIn.Models
 {
     public class Inmate
     {
+        public string Name { get; set; }
+        public List<string> MyServices { get; set; }
     }
 }
