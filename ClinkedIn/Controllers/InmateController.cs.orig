@@ -9,6 +9,12 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ClinkedIn.Controllers
 {
+<<<<<<< HEAD
+    [Route("api/inmates")]
+    [ApiController]
+    public class InmateController : ControllerBase
+    {
+=======
     [Route("api/Inmate")]
     [ApiController]
     public class InmateController : ControllerBase
@@ -20,11 +26,12 @@ namespace ClinkedIn.Controllers
             var repo = new InmateRepository();
             return repo.GetAll();
         }
+>>>>>>> master
 
 
 
-        [HttpGet"{id}"]
-        public ActionResult<IEnumerable<string>> Get(int id)
+        [HttpGet]
+        public ActionResult<IEnumerable<string>> Get()
         {
             var repo = new InmateRepository();
             var myServ = repo.GetMyServices();

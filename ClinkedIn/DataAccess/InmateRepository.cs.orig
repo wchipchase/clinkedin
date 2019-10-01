@@ -14,6 +14,19 @@ namespace ClinkedIn.DataAccess
         {
             new Inmate
             {
+<<<<<<< HEAD
+                Name = "Joe",
+                MyServices = new List<string>{"Saul", "Silvestre"}
+
+            }
+        };
+
+        public List<string> GetMyServices()
+        {
+            return _inmates.First().MyServices;
+        }
+
+=======
                 id = 1,
                 Name = "Nathan Gonzalez",
                 DischargeDate = new DateTime(2099, 09, 09),
@@ -179,5 +192,6 @@ namespace ClinkedIn.DataAccess
             _inmates.Add(newInmate);
             return newInmate;
         }
+>>>>>>> master
     }
 }

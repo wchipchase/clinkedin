@@ -9,6 +9,10 @@ namespace ClinkedIn.Models
 
         
     {
+<<<<<<< HEAD
+        public string Name { get; set; }
+        public List<string> MyServices { get; set; }
+=======
         public int id { get; set; }
 
         public string Name { get; set; }
@@ -19,6 +23,7 @@ namespace ClinkedIn.Models
         public List<string> Clique { get; set; }
         public List<string> Beefs { get; set; }
         public List<string> Interests { get; set; }
+>>>>>>> master
     }
     
 }
