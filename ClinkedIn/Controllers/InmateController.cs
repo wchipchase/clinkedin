@@ -23,24 +23,12 @@ namespace ClinkedIn.Controllers
 
 
 
-        [HttpGet"{id}"]
+        [HttpGet("myservices/{id}")]
         public ActionResult<IEnumerable<string>> Get(int id)
         {
             var repo = new InmateRepository();
-            var myServ = repo.GetMyServices();
+            var myServ = repo.GetMyServices(id);
             return myServ;
-        }
-
-        // POST: api/Inmate
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
-        }
-
-        // PUT: api/Inmate/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
         }
     }
 }

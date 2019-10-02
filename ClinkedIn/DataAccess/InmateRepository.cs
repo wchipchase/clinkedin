@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using ClinkedIn.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ClinkedIn.DataAccess
@@ -27,7 +26,7 @@ namespace ClinkedIn.DataAccess
 
             new Inmate
             {
-                id = 1,
+                id = 2,
                 Name = "Martin Cross",
                 DischargeDate = new DateTime(2024, 06, 15),
                 CrimeCharged = "Reckless Endangerment",
@@ -40,7 +39,7 @@ namespace ClinkedIn.DataAccess
 
             new Inmate
             {
-                id = 1,
+                id = 3,
                 Name = "Silvestre Luna",
                 DischargeDate = new DateTime(2025, 09, 15),
                 CrimeCharged = "Indecent Exposure",
@@ -53,7 +52,7 @@ namespace ClinkedIn.DataAccess
 
             new Inmate
             {
-                id = 1,
+                id = 4,
                 Name = "Saul Soldano",
                 DischargeDate = new DateTime(2029, 01, 02),
                 CrimeCharged = "Assault and Battery",
@@ -66,7 +65,7 @@ namespace ClinkedIn.DataAccess
 
                         new Inmate
             {
-                id = 1,
+                id = 5,
                 Name = "Wayne Chipchase",
                 DischargeDate = new DateTime(2050, 06, 13),
                 CrimeCharged = "Poltics",
@@ -79,7 +78,7 @@ namespace ClinkedIn.DataAccess
 
             new Inmate
             {
-                id = 1,
+                id = 6,
                 Name = "Bob Bobertson",
                 DischargeDate = new DateTime(2099, 08, 11),
                 CrimeCharged = "Murder 1",
@@ -92,7 +91,7 @@ namespace ClinkedIn.DataAccess
 
             new Inmate
             {
-                id = 1,
+                id = 8,
                 Name = "Bill Billingsley",
                 DischargeDate = new DateTime(2099, 06, 20),
                 CrimeCharged = "Murder 1",
@@ -105,7 +104,7 @@ namespace ClinkedIn.DataAccess
 
             new Inmate
             {
-                id = 1,
+                id = 9,
                 Name = "Tom Thompson",
                 DischargeDate = new DateTime(2099, 06, 20),
                 CrimeCharged = "Murder 1",
@@ -118,7 +117,7 @@ namespace ClinkedIn.DataAccess
 
             new Inmate
             {
-                id = 1,
+                id = 10,
                 Name = "Fred Fredrickson",
                 DischargeDate = new DateTime(2099, 06, 20),
                 CrimeCharged = "Murder 1",
@@ -131,7 +130,7 @@ namespace ClinkedIn.DataAccess
 
             new Inmate
             {
-                id = 1,
+                id = 11,
                 Name = "Stew Stewart",
                 DischargeDate = new DateTime(2099, 06, 20),
                 CrimeCharged = "Murder 1",
@@ -142,6 +141,17 @@ namespace ClinkedIn.DataAccess
                 Interests = new List<string>{ ""}
             },
         };
+
+        public List<string> GetMyServices(int id)
+        {
+            var myServices = _inmates.FirstOrDefault(a => a.id == id);
+            if (myServices == null)
+            {
+                var noUserErrorMsg = new List<string>{"Inmate does not exist."};
+                return noUserErrorMsg;
+            }
+            return myServices.MyServices;
+        }
 
         public List<Inmate> GetAll()
         {
