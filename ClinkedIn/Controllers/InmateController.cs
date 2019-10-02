@@ -25,7 +25,15 @@ namespace ClinkedIn.Controllers
         [HttpGet("{id}", Name = "Get")]
         public string Get(int id)
         {
-            return "value";
+            return "value";                                                                                                                                         
+        }
+
+        // Get: api/Inmate/interest
+        [HttpGet("interest/{interest}")]
+        public ActionResult<IEnumerable<Inmate>> GetListOfInmatesByInterest(string interest)
+        {
+            var repo = new InmateRepository();
+            return Ok(repo.GetListOfInmatesByInterest(interest));
         }
 
         // POST: api/Inmate
