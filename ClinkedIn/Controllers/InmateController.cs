@@ -53,8 +53,22 @@ namespace ClinkedIn.Controllers
 
         // PUT: api/Inmate/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public IActionResult UpdateInmate(UpdateInmateCommand updatedInmateCommand, int id)
         {
+            var repo = new InmateRepository();
+            var updatedInmate = new Inmate
+            {
+                Name = updatedInmateCommand.Name,
+                DischargeDate = updatedInmateCommand.DischargeDate,
+                CrimeCharged = updatedInmateCommand.CrimeCharged,
+                Crew = updatedInmateCommand.Crew,
+                Clique = updatedInmateCommand.Clique,
+                Beefs = updatedInmateCommand.Beefs,
+                Interests = updatedInmateCommand.Interests,
+            };
+
+            var inmateThatGotUpdated = repo.Update(updatedInmate, id);
+            return Ok(inmateThatGotUpdated);
         }
     }
 }
