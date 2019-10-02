@@ -27,7 +27,7 @@ namespace ClinkedIn.DataAccess
 
             new Inmate
             {
-                id = 1,
+                id = 2,
                 Name = "Martin Cross",
                 DischargeDate = new DateTime(2024, 06, 15),
                 CrimeCharged = "Reckless Endangerment",
@@ -40,7 +40,7 @@ namespace ClinkedIn.DataAccess
 
             new Inmate
             {
-                id = 1,
+                id = 3,
                 Name = "Silvestre Luna",
                 DischargeDate = new DateTime(2025, 09, 15),
                 CrimeCharged = "Indecent Exposure",
@@ -53,8 +53,8 @@ namespace ClinkedIn.DataAccess
 
             new Inmate
             {
-                id = 1,
-                Name = "Saul Soldano",
+                id = 4,
+                Name = "Saul Solano",
                 DischargeDate = new DateTime(2029, 01, 02),
                 CrimeCharged = "Assault and Battery",
                 MyServices = new List<string> {"Hoochmaster"} ,
@@ -66,7 +66,7 @@ namespace ClinkedIn.DataAccess
 
                         new Inmate
             {
-                id = 1,
+                id = 5,
                 Name = "Wayne Chipchase",
                 DischargeDate = new DateTime(2050, 06, 13),
                 CrimeCharged = "Poltics",
@@ -79,7 +79,7 @@ namespace ClinkedIn.DataAccess
 
             new Inmate
             {
-                id = 1,
+                id = 6,
                 Name = "Bob Bobertson",
                 DischargeDate = new DateTime(2099, 08, 11),
                 CrimeCharged = "Murder 1",
@@ -92,7 +92,7 @@ namespace ClinkedIn.DataAccess
 
             new Inmate
             {
-                id = 1,
+                id = 7,
                 Name = "Bill Billingsley",
                 DischargeDate = new DateTime(2099, 06, 20),
                 CrimeCharged = "Murder 1",
@@ -105,7 +105,7 @@ namespace ClinkedIn.DataAccess
 
             new Inmate
             {
-                id = 1,
+                id = 8,
                 Name = "Tom Thompson",
                 DischargeDate = new DateTime(2099, 06, 20),
                 CrimeCharged = "Murder 1",
@@ -118,7 +118,7 @@ namespace ClinkedIn.DataAccess
 
             new Inmate
             {
-                id = 1,
+                id = 9,
                 Name = "Fred Fredrickson",
                 DischargeDate = new DateTime(2099, 06, 20),
                 CrimeCharged = "Murder 1",
@@ -131,7 +131,7 @@ namespace ClinkedIn.DataAccess
 
             new Inmate
             {
-                id = 1,
+                id = 10,
                 Name = "Stew Stewart",
                 DischargeDate = new DateTime(2099, 06, 20),
                 CrimeCharged = "Murder 1",
