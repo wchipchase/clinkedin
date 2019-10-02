@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using ClinkedIn.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ClinkedIn.DataAccess
@@ -19,127 +18,127 @@ namespace ClinkedIn.DataAccess
                 DischargeDate = new DateTime(2099, 09, 09),
                 CrimeCharged = "Public Intoxication",
                 MyServices = new List<string> {"Hoochmaster"} ,
-                Crew = new List<string>{""},
-                Clique = new List<string>{"" },
-                Beefs = new List<string>{ ""},
-                Interests = new List<string>{ ""}
+                Crew = new List<string>{},
+                Clique = new List<string>{"Bob Bobertson", "Saul Solano" },
+                Beefs = new List<string>{ "Tom Thompson"},
+                Interests = new List<string>{ "Reading", "Music", "Cooking"}
             },
 
             new Inmate
             {
-                id = 1,
+                id = 2,
                 Name = "Martin Cross",
                 DischargeDate = new DateTime(2024, 06, 15),
                 CrimeCharged = "Reckless Endangerment",
-                MyServices = new List<string> {"Hoochmaster"} ,
-                Crew = new List<string>{"" },
-                Clique = new List<string>{"" },
-                Beefs = new List<string>{ ""},
-                Interests = new List<string>{ ""}
+                MyServices = new List<string> {"Shankmaster"} ,
+                Crew = new List<string>{},
+                Clique = new List<string>{"Wayne Chipchase", "Tom Thompson"  },
+                Beefs = new List<string>{ "Saul Solano"},
+                Interests = new List<string>{ "Reading", "Gardening"}
             },
 
             new Inmate
             {
-                id = 1,
+                id = 3,
                 Name = "Silvestre Luna",
                 DischargeDate = new DateTime(2025, 09, 15),
                 CrimeCharged = "Indecent Exposure",
-                MyServices = new List<string> {"Hoochmaster"} ,
-                Crew = new List<string>{"" },
-                Clique = new List<string>{"" },
-                Beefs = new List<string>{ ""},
-                Interests = new List<string>{ ""}
+                MyServices = new List<string> {"Bookie"} ,
+                Crew = new List<string>{ },
+                Clique = new List<string>{"Saul Solano", "Wayne Chipchase", "Nathan Gonzalez" },
+                Beefs = new List<string>{ "Fred Fredrickson"},
+                Interests = new List<string>{ "Chess", "Dice"}
             },
 
             new Inmate
             {
-                id = 1,
-                Name = "Saul Soldano",
+                id = 4,
+                Name = "Saul Solano",
                 DischargeDate = new DateTime(2029, 01, 02),
                 CrimeCharged = "Assault and Battery",
-                MyServices = new List<string> {"Hoochmaster"} ,
-                Crew = new List<string>{"" },
-                Clique = new List<string>{"" },
-                Beefs = new List<string>{ ""},
-                Interests = new List<string>{ ""}
+                MyServices = new List<string> {"Personal Protection"} ,
+                Crew = new List<string>{ },
+                Clique = new List<string>{"Silvestre Luna", "Wayne Chipchase", "Martin Cross" },
+                Beefs = new List<string>{ "Tom Thompson"},
+                Interests = new List<string>{ "Drawing", "Music", "Reading"}
             },
 
                         new Inmate
             {
-                id = 1,
+                id = 5,
                 Name = "Wayne Chipchase",
                 DischargeDate = new DateTime(2050, 06, 13),
                 CrimeCharged = "Poltics",
                 MyServices = new List<string> {"Hoochmaster"} ,
-                Crew = new List<string>{"" },
-                Clique = new List<string>{"" },
-                Beefs = new List<string>{ ""},
-                Interests = new List<string>{ ""}
+                Crew = new List<string>{ },
+                Clique = new List<string>{"Saul Solano", "Silvestre Luna", "Nathan Gonzalez"},
+                Beefs = new List<string>{ "Bill Billingsley"},
+                Interests = new List<string>{ "Reading", "Music", "Weightlifting"}
             },
 
             new Inmate
             {
-                id = 1,
+                id = 6,
                 Name = "Bob Bobertson",
                 DischargeDate = new DateTime(2099, 08, 11),
                 CrimeCharged = "Murder 1",
-                MyServices = new List<string> {"Hoochmaster"} ,
+                MyServices = new List<string> {"Shankmaster"} ,
                 Crew = new List<string>{"" },
-                Clique = new List<string>{"" },
-                Beefs = new List<string>{ ""},
-                Interests = new List<string>{ ""}
+                Clique = new List<string>{"Bill Billingsley", "Saul Solano"},
+                Beefs = new List<string>{ "Silvestre Luna"},
+                Interests = new List<string>{ "Reading", "Music", "Cooking" }
             },
 
             new Inmate
             {
-                id = 1,
+                id = 7,
                 Name = "Bill Billingsley",
                 DischargeDate = new DateTime(2099, 06, 20),
                 CrimeCharged = "Murder 1",
-                MyServices = new List<string> {"Hoochmaster"} ,
+                MyServices = new List<string> {"Bookie"} ,
                 Crew = new List<string>{"" },
-                Clique = new List<string>{"" },
-                Beefs = new List<string>{ ""},
-                Interests = new List<string>{ ""}
+                Clique = new List<string>{"Wayne Chipchase", "Tom Thompson" },
+                Beefs = new List<string>{ "Saul Solano"},
+                Interests = new List<string>{ "Reading", "Gardening" }
             },
 
             new Inmate
             {
-                id = 1,
+                id = 8,
                 Name = "Tom Thompson",
                 DischargeDate = new DateTime(2099, 06, 20),
                 CrimeCharged = "Murder 1",
-                MyServices = new List<string> {"Hoochmaster"} ,
+                MyServices = new List<string> {"Personal Protection"} ,
                 Crew = new List<string>{"" },
-                Clique = new List<string>{"" },
-                Beefs = new List<string>{ ""},
-                Interests = new List<string>{ ""}
+                Clique = new List<string>{"Saul Solano", "Silvestre Luna", "Nathan Gonzalez" },
+                Beefs = new List<string>{ "MArtin Cross"},
+                Interests = new List<string>{  "Reading", "Music", "Weightlifting"}
             },
 
             new Inmate
             {
-                id = 1,
+                id = 9,
                 Name = "Fred Fredrickson",
                 DischargeDate = new DateTime(2099, 06, 20),
                 CrimeCharged = "Murder 1",
                 MyServices = new List<string> {"Hoochmaster"} ,
                 Crew = new List<string>{"" },
-                Clique = new List<string>{"" },
-                Beefs = new List<string>{ ""},
-                Interests = new List<string>{ ""}
+                Clique = new List<string>{"Stew Stewart", "Tom Thompson" },
+                Beefs = new List<string>{ "Nathan Gonzalez"},
+                Interests = new List<string>{ "Chess", "Dice" }
             },
 
             new Inmate
             {
-                id = 1,
+                id = 10,
                 Name = "Stew Stewart",
                 DischargeDate = new DateTime(2099, 06, 20),
                 CrimeCharged = "Murder 1",
-                MyServices = new List<string> {"Hoochmaster"} ,
-                Crew = new List<string>{"" },
-                Clique = new List<string>{"" },
-                Beefs = new List<string>{ ""},
-                Interests = new List<string>{ ""}
+                MyServices = new List<string> {"Shankmaster"} ,
+                Crew = new List<string>{ },
+                Clique = new List<string>{"Tom Thompson", "Fred Fredrickson" },
+                Beefs = new List<string>{ "Silvestre Luna"},
+                Interests = new List<string>{ "Drawing", "Music", "Reading" }
             },
         };
 
