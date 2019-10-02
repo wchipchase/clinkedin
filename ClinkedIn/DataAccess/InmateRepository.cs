@@ -191,5 +191,15 @@ namespace ClinkedIn.DataAccess
             _inmates.Add(newInmate);
             return newInmate;
         }
+
+        public List<string> GetMyServices(int id)
+        {
+            var myServices = _inmates.FirstOrDefault(a => a.id == id);
+            if (myServices == null)
+            {
+                throw new Exception();
+            }
+            return myServices.MyServices;
+        }
     }
 }
