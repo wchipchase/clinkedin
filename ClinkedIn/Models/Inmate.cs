@@ -9,17 +9,12 @@ namespace ClinkedIn.Models
 
         
     {
-
-        public Inmate()
-        {
-            Services = new List<string>();
-        }
-        public Guid id { get; set; }
+        public int id { get; set; }
 
         public string Name { get; set; }
         public string CrimeCharged { get; set; }
         public DateTime DischargeDate { get; set; }
-        static List<string> Services{ get; set; }
+        public List<string> MyServices{ get; set; }
         public List<string> Crew { get; set; }
         public List<string> Clique { get; set; }
         public List<string> Beefs { get; set; }

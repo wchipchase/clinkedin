@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ClinkedIn.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ClinkedIn.DataAccess
 {
@@ -11,95 +12,172 @@ namespace ClinkedIn.DataAccess
     {
         static List<Inmate> _inmates = new List<Inmate>
         {
+            new Inmate
             {
-                id = Guid.NewGuid(),
+                id = 1,
                 Name = "Nathan Gonzalez",
-                DischargeDate = 06/20/2099,
-                CrimeCharged = "Murder 1",
-                Services = _inmates.Services ("Hoochmaster") ,
-                Service
-                Crew = 0
-                Clique = 
-                Beefs = 
-                Interests = 
+                DischargeDate = new DateTime(),
+                CrimeCharged = "Public Intoxication",
+                MyServices = new List<string> {"Hoochmaster"} ,
+                Crew = new List<string>{""},
+                Clique = new List<string>{"" },
+                Beefs = new List<string>{ ""},
+                Interests = new List<string>{ ""}
             },
 
             new Inmate
             {
-                id = Guid.NewGuid(),
+                id = 1,
                 Name = "Martin Cross",
-                DischargeDate = 06/20/2099,
-                CrimeCharged = "Murder 1"
-                Services = Specialty.TaeCluckDoe,
-                Crew = 0
-                Clique =
-                Beefs =
-                Interests =
+                DischargeDate = new DateTime(05/15/2024),
+                CrimeCharged = "Reckless Endangerment",
+                MyServices = new List<string> {"Hoochmaster"} ,
+                Crew = new List<string>{"" },
+                Clique = new List<string>{"" },
+                Beefs = new List<string>{ ""},
+                Interests = new List<string>{ ""}
             },
 
             new Inmate
             {
-                id = Guid.NewGuid(),
-                Name = "Nathan",
-                DischargeDate = 06/20/2099,
-                CrimeCharged = "Murder 1"
-                Services = Specialty.TaeCluckDoe,
-                Crew = 0
-                Clique =
-                Beefs =
-                Interests =
-            }
+                id = 1,
+                Name = "Silvestre Luna",
+                DischargeDate = new DateTime(09/20/2025),
+                CrimeCharged = "Indecent Exposure",
+                MyServices = new List<string> {"Hoochmaster"} ,
+                Crew = new List<string>{"" },
+                Clique = new List<string>{"" },
+                Beefs = new List<string>{ ""},
+                Interests = new List<string>{ ""}
+            },
 
             new Inmate
             {
-                id = Guid.NewGuid(),
-                Name = "Nathan",
-                DischargeDate = 06/20/2099,
-                CrimeCharged = "Murder 1"
-                Services = Specialty.TaeCluckDoe,
-                Crew = 0
-                Clique =
-                Beefs =
-                Interests =
-            }
+                id = 1,
+                Name = "Saul Soldano",
+                DischargeDate = new DateTime(01/12/2029),
+                CrimeCharged = "Assault and Battery",
+                MyServices = new List<string> {"Hoochmaster"} ,
+                Crew = new List<string>{"" },
+                Clique = new List<string>{"" },
+                Beefs = new List<string>{ ""},
+                Interests = new List<string>{ ""}
+            },
 
+                        new Inmate
+            {
+                id = 1,
+                Name = "Wayne Chipchase",
+                DischargeDate = new DateTime(06/13/2050),
+                CrimeCharged = "Poltics",
+                MyServices = new List<string> {"Hoochmaster"} ,
+                Crew = new List<string>{"" },
+                Clique = new List<string>{"" },
+                Beefs = new List<string>{ ""},
+                Interests = new List<string>{ ""}
+            },
+
+            new Inmate
+            {
+                id = 1,
+                Name = "Bob Bobertson",
+                DischargeDate = new DateTime(08/11/2099),
+                CrimeCharged = "Murder 1",
+                MyServices = new List<string> {"Hoochmaster"} ,
+                Crew = new List<string>{"" },
+                Clique = new List<string>{"" },
+                Beefs = new List<string>{ ""},
+                Interests = new List<string>{ ""}
+            },
+
+            new Inmate
+            {
+                id = 1,
+                Name = "Bill Billingsley",
+                DischargeDate = new DateTime(06/20/2099),
+                CrimeCharged = "Murder 1",
+                MyServices = new List<string> {"Hoochmaster"} ,
+                Crew = new List<string>{"" },
+                Clique = new List<string>{"" },
+                Beefs = new List<string>{ ""},
+                Interests = new List<string>{ ""}
+            },
+
+            new Inmate
+            {
+                id = 1,
+                Name = "Tom Thompson",
+                DischargeDate = new DateTime(06/20/2099),
+                CrimeCharged = "Murder 1",
+                MyServices = new List<string> {"Hoochmaster"} ,
+                Crew = new List<string>{"" },
+                Clique = new List<string>{"" },
+                Beefs = new List<string>{ ""},
+                Interests = new List<string>{ ""}
+            },
+
+            new Inmate
+            {
+                id = 1,
+                Name = "Fred Fredrickson",
+                DischargeDate = new DateTime(06/20/2099),
+                CrimeCharged = "Murder 1",
+                MyServices = new List<string> {"Hoochmaster"} ,
+                Crew = new List<string>{"" },
+                Clique = new List<string>{"" },
+                Beefs = new List<string>{ ""},
+                Interests = new List<string>{ ""}
+            },
+
+            new Inmate
+            {
+                id = 1,
+                Name = "Stew Stewart",
+                DischargeDate = new DateTime(06/20/2099),
+                CrimeCharged = "Murder 1",
+                MyServices = new List<string> {"Hoochmaster"} ,
+                Crew = new List<string>{"" },
+                Clique = new List<string>{"" },
+                Beefs = new List<string>{ ""},
+                Interests = new List<string>{ ""}
+            },
         };
 
-        internal ActionResult<Trainer> Get()
+        public List<Inmate> GetAll()
         {
-            throw new NotImplementedException();
+            return _inmates;
         }
 
-        public List<Trainer> GetAll()
+        public Inmate Get(int id)
         {
-            return _trainers;
+            var inmate = _inmates.First(t => t.id == id);
+            return inmate;
         }
 
-        public Trainer Get(string name)
+        public void Remove(int id)
         {
-            var trainer = _trainers.First(t => t.Name == name);
-            return trainer;
+            var inmate = Get(id);
+            _inmates.Remove(inmate);
         }
 
-        public void Remove(string name)
+        public Inmate Update(Inmate updatedInmate, int id)
         {
-            var trainer = Get(name);
-            _trainers.Remove(trainer);
+            var inmateToUpdate = _inmates.First(inmate => inmate.id == id);
+            inmateToUpdate.Name = updatedInmate.Name;
+            inmateToUpdate.DischargeDate = updatedInmate.DischargeDate;
+            inmateToUpdate.CrimeCharged = updatedInmate.CrimeCharged;
+            inmateToUpdate.Beefs = updatedInmate.Beefs;
+            inmateToUpdate.Clique = updatedInmate.Clique;
+            inmateToUpdate.Crew = updatedInmate.Crew;
+            inmateToUpdate.Interests = updatedInmate.Interests;
+            inmateToUpdate.MyServices = updatedInmate.MyServices;
+            return inmateToUpdate;
         }
 
-        public Trainer Update(Trainer updatedTrainer, Guid id)
+        public Inmate Add(Inmate newInmate)
         {
-            var trainerToUpdate = _trainers.First(trainer => trainer.id == id);
-            trainerToUpdate.Name = updatedTrainer.Name;
-            trainerToUpdate.YearsOfExperience = updatedTrainer.YearsOfExperience;
-            trainerToUpdate.Specialty = updatedTrainer.Specialty;
-            return trainerToUpdate;
-        }
-
-        public Trainer Add(Trainer newTrainer)
-        {
-            _trainers.Add(newTrainer);
-            return newTrainer;
+            _inmates.Add(newInmate);
+            return newInmate;
         }
     }
 }
