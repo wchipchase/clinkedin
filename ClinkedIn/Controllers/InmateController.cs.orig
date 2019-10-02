@@ -26,8 +26,8 @@ namespace ClinkedIn.Controllers
         [HttpGet("{id}", Name = "Get")]
         public ActionResult<Inmate> GetById(int id)
         {
-            var repo = new InmateRepository();
-            return repo.Get(id);
+<<<<<<< HEAD
+            return "value";                                                                                                                                         
         }
 
         // Get: api/Inmate/interest
@@ -36,6 +36,10 @@ namespace ClinkedIn.Controllers
         {
             var repo = new InmateRepository();
             return Ok(repo.GetListOfInmatesByInterest(interest));
+=======
+            var repo = new InmateRepository();
+            return repo.Get(id);
+>>>>>>> master
         }
 
         // POST: api/Inmate

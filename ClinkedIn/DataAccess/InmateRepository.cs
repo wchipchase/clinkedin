@@ -153,6 +153,19 @@ namespace ClinkedIn.DataAccess
             return inmate;
         }
 
+        public List<string> GetListOfInmatesByInterest(string interest)
+        {
+            var userWithSpecificInterest = new List<string>();
+            foreach(var inmate in _inmates)
+            {
+                if (inmate.Interests.Contains(interest))
+                {
+                    userWithSpecificInterest.Add(inmate.Name);
+                }
+            }
+            return userWithSpecificInterest;
+        }
+
         public void Remove(int id)
         {
             var inmate = Get(id);
