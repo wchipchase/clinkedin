@@ -22,10 +22,24 @@ namespace ClinkedIn.Controllers
             return repo.GetAll();
         }
 
+        // GET: api/Inmate/5
+        [HttpGet("{id}", Name = "Get")]
         public ActionResult<Inmate> GetById(int id)
+        {
             var repo = new InmateRepository();
             return repo.Get(id);
+        }
 
+        // Get: api/Inmate/interest
+        [HttpGet("interest/{interest}")]
+        public ActionResult<IEnumerable<Inmate>> GetListOfInmatesByInterest(string interest)
+        {
+            var repo = new InmateRepository();
+            return Ok(repo.GetListOfInmatesByInterest(interest));
+        }
+
+        // POST: api/Inmate
+        [HttpPost]
         public IActionResult CreateInmate(AddInmateCommand newInmateCommand)
         {
             var newInmate = new Inmate
@@ -43,9 +57,10 @@ namespace ClinkedIn.Controllers
             var inmateThatGotCreated = repo.Add(newInmate);
 
             return Created($"api/Inmate/{inmateThatGotCreated.Name}", inmateThatGotCreated);
+        }
 
-        [HttpGet("myservices/{id}")]
-        public ActionResult<IEnumerable<string>> Get(int id)
+        // PUT: api/Inmate/5
+        [HttpPut("{id}")]
         public IActionResult UpdateInmate(UpdateInmateCommand updatedInmateCommand, int id)
         {
             var repo = new InmateRepository();
