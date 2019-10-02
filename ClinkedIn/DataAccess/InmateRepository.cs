@@ -147,8 +147,7 @@ namespace ClinkedIn.DataAccess
             var myServices = _inmates.FirstOrDefault(a => a.id == id);
             if (myServices == null)
             {
-                var myServiceIsNullString = new List<string>{"Inmate does not exist"};
-                return myServiceIsNullString;
+                throw new Exception();
             }
             return myServices.MyServices;
         }

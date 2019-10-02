@@ -38,6 +38,23 @@ namespace ClinkedIn.Controllers
             return Ok(repo.GetListOfInmatesByInterest(interest));
         }
 
+        [HttpGet("myservices/{id}")]
+        public ActionResult<IEnumerable<string>> GetInmateServices(int id)
+        {
+            var repo = new InmateRepository();
+            try
+            {
+                var myServices = repo.GetMyServices(id);
+                return myServices;
+            }
+            catch (Exception)
+            {
+                return BadRequest("Inmate ID does not exist");
+            }
+
+        }
+
+
         // POST: api/Inmate
         [HttpPost]
         public IActionResult CreateInmate(AddInmateCommand newInmateCommand)
