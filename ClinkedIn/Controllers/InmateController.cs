@@ -102,6 +102,6 @@ namespace ClinkedIn.Controllers
             var myBeefs = repo.GetMyBeefs(id);
             return myBeefs;
         }
-        
+
     }
 }
