@@ -201,5 +201,15 @@ namespace ClinkedIn.DataAccess
             }
             return myServices.MyServices;
         }
+
+        public List<string> GetMyBeefs(int id)
+        {
+            var myBeefs = _inmates.First(t => t.id == id);
+            if (myBeefs == null)
+            {
+                throw new Exception();
+            }
+            return myBeefs.Beefs;
+        }
     }
 }

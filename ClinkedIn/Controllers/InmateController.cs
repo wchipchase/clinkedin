@@ -94,5 +94,14 @@ namespace ClinkedIn.Controllers
             }
 
         }
+
+        [HttpGet("{id}/beefs")]
+        public ActionResult<IEnumerable<string>> GetInmateBeefs(int id)
+        {
+            var repo = new InmateRepository();
+            var myBeefs = repo.GetMyBeefs(id);
+            return myBeefs;
+        }
+        
     }
 }
