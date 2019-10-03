@@ -191,5 +191,11 @@ namespace ClinkedIn.DataAccess
             _inmates.Add(newInmate);
             return newInmate;
         }
+
+        public Inmate GetFriendsFriend(int id)
+        {
+            var something = Get(id);
+            return something;
+        }
     }
 }

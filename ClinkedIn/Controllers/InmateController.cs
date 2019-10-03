@@ -78,5 +78,13 @@ namespace ClinkedIn.Controllers
             var inmateThatGotUpdated = repo.Update(updatedInmate, id);
             return Ok(inmateThatGotUpdated);
         }
+
+        [HttpGet("mycrews/{id}")]
+        public ActionResult<Inmate> GetMyCrews(int id)
+        {
+            var repo = new InmateRepository();
+            var myCrews = repo.GetFriendsFriend(id);
+            return myCrews;
+        }
     }
 }
