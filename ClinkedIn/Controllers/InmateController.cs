@@ -46,7 +46,8 @@ namespace ClinkedIn.Controllers
             {
                 id = newInmateCommand.id,
                 Name = newInmateCommand.Name,
-                DischargeDate = newInmateCommand.DischargeDate,
+                ConvictedDate = newInmateCommand.ConvictedDate,
+                LengthOfSentence = newInmateCommand.LengthOfSentence,
                 CrimeCharged = newInmateCommand.CrimeCharged,
                 Crew = newInmateCommand.Crew,
                 Clique = newInmateCommand.Clique,
@@ -67,7 +68,8 @@ namespace ClinkedIn.Controllers
             var updatedInmate = new Inmate
             {
                 Name = updatedInmateCommand.Name,
-                DischargeDate = updatedInmateCommand.DischargeDate,
+                ConvictedDate = updatedInmateCommand.ConvictetdDate,
+                LengthOfSentence = updatedInmateCommand.LenghtOfSentence,
                 CrimeCharged = updatedInmateCommand.CrimeCharged,
                 Crew = updatedInmateCommand.Crew,
                 Clique = updatedInmateCommand.Clique,
@@ -134,7 +136,19 @@ namespace ClinkedIn.Controllers
             {
                 return BadRequest("Inmate ID does not exist");
             }
-
         }
+
+        [HttpGet("{id}/sentence")]
+        public ActionResult<int> GetDaysLeftInSentence(int id)
+        {
+            var repo = new InmateRepository();
+            var inmate = repo.Get(id);
+            var today = DateTime.Now;
+            TimeSpan daysServed = inmate.ConvictedDate - today;
+            var daysServedAbs = Math.Abs(daysServed.Days);
+            var daysLeft = (inmate.LengthOfSentence - daysServedAbs);
+            return daysLeft;
+        }
+
     }
 }
