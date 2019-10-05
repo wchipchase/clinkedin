@@ -219,7 +219,8 @@ namespace ClinkedIn.DataAccess
             {
                 throw new Exception();
             }
-            return myFriends.Crew;
+            return myFriends.Clique;
         }
+
     }
 }
