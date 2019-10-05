@@ -246,22 +246,27 @@ namespace ClinkedIn.DataAccess
         {
             List<string> friendsFriend = new List<string>();
 
-            var myFriends = GetMyFriends(id);
-
-            foreach(var aFriend in myFriends)
+            try
             {
-                var allInmates = GetAll();
+                var myFriends = GetMyFriends(id);
 
-                foreach(var inmate in allInmates)
+                foreach (var aFriend in myFriends)
                 {
-                    if (aFriend == inmate.Name)
+                    var allInmates = GetAll();
+
+                    foreach(var inmate in allInmates)
                     {
-                        friendsFriend.AddRange(inmate.Clique);
+                        if (aFriend == inmate.Name)
+                        {
+                            friendsFriend.AddRange(inmate.Clique);
+                        }
                     }
                 }
-
             }
-
+            catch (Exception ex)
+            {
+                throw ex;
+            }
             return friendsFriend;
         }
     }
