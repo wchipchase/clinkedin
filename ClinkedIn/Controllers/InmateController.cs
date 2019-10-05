@@ -103,5 +103,12 @@ namespace ClinkedIn.Controllers
             return myBeefs;
         }
 
+        [HttpGet("{id}/friends")]
+        public ActionResult<IEnumerable<string>> GetMyFriends(int id)
+        {
+            var repo = new InmateRepository();
+            var myFriends = repo.GetMyFriends(id);
+            return myFriends;
+        }
     }
 }
