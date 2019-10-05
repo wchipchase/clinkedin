@@ -79,15 +79,6 @@ namespace ClinkedIn.Controllers
             return Ok(inmateThatGotUpdated);
         }
 
-<<<<<<< HEAD
-        [HttpGet("mycrews/{id}")]
-        public ActionResult<Inmate> GetMyCrews(int id)
-        {
-            var repo = new InmateRepository();
-            var myCrews = repo.GetFriendsFriend(id);
-            return myCrews;
-        }
-=======
         [HttpGet("myservices/{id}")]
         public ActionResult<IEnumerable<string>> GetInmateServices(int id)
         {
@@ -112,6 +103,22 @@ namespace ClinkedIn.Controllers
             return myBeefs;
         }
 
+<<<<<<< HEAD
+
+        [HttpGet("mycrews/{id}")]
+        public ActionResult<Inmate> GetMyCrews(int id)
+        {
+            var repo = new InmateRepository();
+            var myCrews = repo.GetFriendsFriend(id);
+            return myCrews;
+=======
+        [HttpGet("{id}/friends")]
+        public ActionResult<IEnumerable<string>> GetMyFriends(int id)
+        {
+            var repo = new InmateRepository();
+            var myFriends = repo.GetMyFriends(id);
+            return myFriends;
 >>>>>>> master
+        }
     }
 }
