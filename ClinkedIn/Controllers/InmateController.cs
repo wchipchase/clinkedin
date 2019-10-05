@@ -112,7 +112,7 @@ namespace ClinkedIn.Controllers
         }
 
         [HttpGet("mycrews/{id}")]
-        public ActionResult<Inmate> GetMyCrews(int id)
+        public ActionResult<List<string>> GetMyCrews(int id)
         {
             var repo = new InmateRepository();
             var myCrews = repo.GetFriendsFriend(id);

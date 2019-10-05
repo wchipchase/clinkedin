@@ -63,7 +63,7 @@ namespace ClinkedIn.DataAccess
                 Interests = new List<string>{ "Drawing", "Music", "Reading"}
             },
 
-                        new Inmate
+            new Inmate
             {
                 id = 5,
                 Name = "Wayne Chipchase",
@@ -110,7 +110,7 @@ namespace ClinkedIn.DataAccess
                 CrimeCharged = "Murder 1",
                 MyServices = new List<string> {"Personal Protection"} ,
                 Crew = new List<string>{"" },
-                Clique = new List<string>{"Saul Solano", "Silvestre Luna", "Nathan Gonzalez" },
+                Clique = new List<string>{ "Stew Stewart", "Fredrickson", "Bill Billingsley" },
                 Beefs = new List<string>{ "MArtin Cross"},
                 Interests = new List<string>{  "Reading", "Music", "Weightlifting"}
             },
@@ -223,10 +223,27 @@ namespace ClinkedIn.DataAccess
         }
 
 
-        public Inmate GetFriendsFriend(int id)
+        public List<string> GetFriendsFriend(int id)
         {
-            var something = Get(id);
-            return something;
+            List<string> friendsFriend = new List<string>();
+
+            var myFriends = GetMyFriends(id);
+
+            foreach(var aFriend in myFriends)
+            {
+                var allInmates = GetAll();
+
+                foreach(var inmate in allInmates)
+                {
+                    if (aFriend == inmate.Name)
+                    {
+                        friendsFriend.AddRange(inmate.Clique);
+                    }
+                }
+
+            }
+
+            return friendsFriend;
         }
     }
 }
