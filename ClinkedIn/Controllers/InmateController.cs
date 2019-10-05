@@ -98,17 +98,33 @@ namespace ClinkedIn.Controllers
         [HttpGet("{id}/beefs")]
         public ActionResult<IEnumerable<string>> GetInmateBeefs(int id)
         {
-            var repo = new InmateRepository();
-            var myBeefs = repo.GetMyBeefs(id);
-            return myBeefs;
+            try
+            {
+                var repo = new InmateRepository();
+                var myBeefs = repo.GetMyBeefs(id);
+                return myBeefs;
+            }
+            catch(Exception)
+            {
+                return BadRequest("Inmate ID does not exist");
+            }
+
         }
 
         [HttpGet("{id}/friends")]
         public ActionResult<IEnumerable<string>> GetMyFriends(int id)
         {
-            var repo = new InmateRepository();
-            var myFriends = repo.GetMyFriends(id);
-            return myFriends;
+            try
+            {
+                var repo = new InmateRepository();
+                var myFriends = repo.GetMyFriends(id);
+                return myFriends;
+            }
+            catch (Exception)
+            {
+                return BadRequest("Inmate ID does not exist");
+            }
+
         }
     }
 }

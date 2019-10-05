@@ -149,7 +149,7 @@ namespace ClinkedIn.DataAccess
 
         public Inmate Get(int id)
         {
-            var inmate = _inmates.First(t => t.id == id);
+            var inmate = _inmates.FirstOrDefault(t => t.id == id);
             return inmate;
         }
 
