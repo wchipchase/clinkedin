@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ClinkedIn.Commands;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ClinkedIn.DataAccess
@@ -191,8 +192,8 @@ namespace ClinkedIn.DataAccess
             _inmates.Add(newInmate);
             return newInmate;
         }
-
-        public Inmate updateInmateInterest(Inmate updatedInterests, int id) 
+        
+        public Inmate updateInmateInterest(UpdateInterestCommand updatedInterests, int id) 
         {
             var inmateInterestUpdate = _inmates.FirstOrDefault(inmate => inmate.id == id);
             inmateInterestUpdate.Interests = updatedInterests.Interests;

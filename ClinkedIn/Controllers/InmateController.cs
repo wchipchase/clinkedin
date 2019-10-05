@@ -81,15 +81,15 @@ namespace ClinkedIn.Controllers
 
         // PUT: api/Inmate/interest/meditating
         [HttpPut("interest/{newInterest}")]
-        public IActionResult UpdateInmateInterest(UpdateInterestCommand updateInmateCommand, int id)
+        public IActionResult UpdateInmateInterest(UpdateInterestCommand updateInterestCommand, int id)
         {
             var repo = new InmateRepository();
-            var updateInterest = new Inmate
+            var updateInterest = new UpdateInterestCommand();
             {
-                Interests = updateInmateCommand.Interests
+               var Interests = updateInterestCommand.Interests;
             };
 
-            var inmateInterestGotUpdated = repo.updateInmateInterest(UpdateInterestCommand UpdateInterest,int id,  Interests);
+            var inmateInterestGotUpdated = repo.updateInmateInterest(updateInterest, id);
             return Ok(inmateInterestGotUpdated);
         }
 
