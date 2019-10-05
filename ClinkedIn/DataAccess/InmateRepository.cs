@@ -193,10 +193,10 @@ namespace ClinkedIn.DataAccess
             return newInmate;
         }
         
-        public Inmate updateInmateInterest(UpdateInterestCommand updatedInterests, int id) 
+        public Inmate updateInmateInterest(List<string> updatedInterests, int id) 
         {
             var inmateInterestUpdate = _inmates.FirstOrDefault(inmate => inmate.id == id);
-            inmateInterestUpdate.Interests = updatedInterests.Interests;
+            inmateInterestUpdate.Interests.AddRange(updatedInterests);
             return inmateInterestUpdate;
         }
 
