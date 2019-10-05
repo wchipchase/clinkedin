@@ -78,5 +78,20 @@ namespace ClinkedIn.Controllers
             var inmateThatGotUpdated = repo.Update(updatedInmate, id);
             return Ok(inmateThatGotUpdated);
         }
+
+        // PUT: api/Inmate/interest/meditating
+        [HttpPut("interest/{newInterest}")]
+        public IActionResult UpdateInmateInterest(UpdateInterestCommand updateInmateCommand, int id)
+        {
+            var repo = new InmateRepository();
+            var updateInterest = new Inmate
+            {
+                Interests = updateInmateCommand.Interests
+            };
+
+            var inmateInterestGotUpdated = repo.updateInmateInterest(UpdateInterestCommand UpdateInterest,int id,  Interests);
+            return Ok(inmateInterestGotUpdated);
+        }
+
     }
 }
