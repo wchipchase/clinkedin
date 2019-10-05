@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ClinkedIn.Commands;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ClinkedIn.DataAccess
@@ -15,7 +16,8 @@ namespace ClinkedIn.DataAccess
             {
                 id = 1,
                 Name = "Nathan Gonzalez",
-                DischargeDate = new DateTime(2099, 09, 09),
+                ConvictedDate = new DateTime(2019, 09, 09),
+                LengthOfSentence = 7300,
                 CrimeCharged = "Public Intoxication",
                 MyServices = new List<string> {"Hoochmaster", "Shankmaking"} ,
                 Crew = new List<string>{},
@@ -28,7 +30,8 @@ namespace ClinkedIn.DataAccess
             {
                 id = 2,
                 Name = "Martin Cross",
-                DischargeDate = new DateTime(2024, 06, 15),
+                ConvictedDate = new DateTime(2015, 09, 09),
+                LengthOfSentence = 1800,
                 CrimeCharged = "Reckless Endangerment",
                 MyServices = new List<string> {"Shankmaster"} ,
                 Crew = new List<string>{},
@@ -41,7 +44,8 @@ namespace ClinkedIn.DataAccess
             {
                 id = 3,
                 Name = "Silvestre Luna",
-                DischargeDate = new DateTime(2025, 09, 15),
+                ConvictedDate = new DateTime(2019, 09, 09),
+                LengthOfSentence = 2000,
                 CrimeCharged = "Indecent Exposure",
                 MyServices = new List<string> {"Bookie"} ,
                 Crew = new List<string>{ },
@@ -54,7 +58,8 @@ namespace ClinkedIn.DataAccess
             {
                 id = 4,
                 Name = "Saul Solano",
-                DischargeDate = new DateTime(2029, 01, 02),
+                ConvictedDate = new DateTime(2017, 09, 09),
+                LengthOfSentence = 3000,
                 CrimeCharged = "Assault and Battery",
                 MyServices = new List<string> {"Personal Protection"} ,
                 Crew = new List<string>{ },
@@ -67,7 +72,8 @@ namespace ClinkedIn.DataAccess
             {
                 id = 5,
                 Name = "Wayne Chipchase",
-                DischargeDate = new DateTime(2050, 06, 13),
+                ConvictedDate = new DateTime(2013, 09, 09),
+                LengthOfSentence = 9000,
                 CrimeCharged = "Poltics",
                 MyServices = new List<string> {"Hoochmaster"} ,
                 Crew = new List<string>{ },
@@ -80,7 +86,8 @@ namespace ClinkedIn.DataAccess
             {
                 id = 6,
                 Name = "Bob Bobertson",
-                DischargeDate = new DateTime(2099, 08, 11),
+                ConvictedDate = new DateTime(2014, 09, 09),
+                LengthOfSentence = 60000,
                 CrimeCharged = "Murder 1",
                 MyServices = new List<string> {"Shankmaster"} ,
                 Crew = new List<string>{"" },
@@ -93,7 +100,8 @@ namespace ClinkedIn.DataAccess
             {
                 id = 7,
                 Name = "Bill Billingsley",
-                DischargeDate = new DateTime(2099, 06, 20),
+                ConvictedDate = new DateTime(2016, 09, 09),
+                LengthOfSentence = 60000,
                 CrimeCharged = "Murder 1",
                 MyServices = new List<string> {"Bookie"} ,
                 Crew = new List<string>{"" },
@@ -106,7 +114,8 @@ namespace ClinkedIn.DataAccess
             {
                 id = 8,
                 Name = "Tom Thompson",
-                DischargeDate = new DateTime(2099, 06, 20),
+                ConvictedDate = new DateTime(2017, 09, 13),
+                LengthOfSentence = 60000,
                 CrimeCharged = "Murder 1",
                 MyServices = new List<string> {"Personal Protection"} ,
                 Crew = new List<string>{"" },
@@ -119,8 +128,9 @@ namespace ClinkedIn.DataAccess
             {
                 id = 9,
                 Name = "Fred Fredrickson",
-                DischargeDate = new DateTime(2099, 06, 20),
-                CrimeCharged = "Murder 1",
+                ConvictedDate = new DateTime(2019, 08, 29),
+                LengthOfSentence = 17000,
+                CrimeCharged = "Murder 3",
                 MyServices = new List<string> {"Hoochmaster"} ,
                 Crew = new List<string>{"" },
                 Clique = new List<string>{"Stew Stewart", "Tom Thompson" },
@@ -132,8 +142,9 @@ namespace ClinkedIn.DataAccess
             {
                 id = 10,
                 Name = "Stew Stewart",
-                DischargeDate = new DateTime(2099, 06, 20),
-                CrimeCharged = "Murder 1",
+                ConvictedDate = new DateTime(2019, 07, 19),
+                LengthOfSentence = 5000,
+                CrimeCharged = "Murder 3",
                 MyServices = new List<string> {"Shankmaster"} ,
                 Crew = new List<string>{ },
                 Clique = new List<string>{"Tom Thompson", "Fred Fredrickson" },
@@ -149,7 +160,7 @@ namespace ClinkedIn.DataAccess
 
         public Inmate Get(int id)
         {
-            var inmate = _inmates.First(t => t.id == id);
+            var inmate = _inmates.FirstOrDefault(t => t.id == id);
             return inmate;
         }
 
@@ -176,7 +187,8 @@ namespace ClinkedIn.DataAccess
         {
             var inmateToUpdate = _inmates.First(inmate => inmate.id == id);
             inmateToUpdate.Name = updatedInmate.Name;
-            inmateToUpdate.DischargeDate = updatedInmate.DischargeDate;
+            inmateToUpdate.ConvictedDate = updatedInmate.ConvictedDate;
+            inmateToUpdate.LengthOfSentence = updatedInmate.LengthOfSentence;
             inmateToUpdate.CrimeCharged = updatedInmate.CrimeCharged;
             inmateToUpdate.Beefs = updatedInmate.Beefs;
             inmateToUpdate.Clique = updatedInmate.Clique;
@@ -190,6 +202,13 @@ namespace ClinkedIn.DataAccess
         {
             _inmates.Add(newInmate);
             return newInmate;
+        }
+        
+        public Inmate updateInmateInterest(List<string> updatedInterests, int id) 
+        {
+            var inmateInterestUpdate = _inmates.FirstOrDefault(inmate => inmate.id == id);
+            inmateInterestUpdate.Interests.AddRange(updatedInterests);
+            return inmateInterestUpdate;
         }
 
         public List<string> GetMyServices(int id)

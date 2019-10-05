@@ -150,7 +150,7 @@ namespace ClinkedIn.Controllers
             return daysLeft;
         }
 
-
+<<<<<<< HEAD
         [HttpGet("mycrews/{id}")]
         public ActionResult<List<string>> GetMyCrews(int id)
         {
@@ -158,5 +158,7 @@ namespace ClinkedIn.Controllers
             var myCrews = repo.GetFriendsFriend(id);
             return myCrews;
         }
+=======
+>>>>>>> master
     }
 }
