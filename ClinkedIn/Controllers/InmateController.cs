@@ -79,7 +79,7 @@ namespace ClinkedIn.Controllers
             return Ok(inmateThatGotUpdated);
         }
 
-        // PUT: api/Inmate/interest/meditating
+        // PUT: api/Inmate/id/interest
         [HttpPut("{id}/interest")]
         public IActionResult UpdateInmateInterest(UpdateInterestCommand updateInterestCommand, int id)
         {
