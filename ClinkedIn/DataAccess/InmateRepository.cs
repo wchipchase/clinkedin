@@ -18,7 +18,7 @@ namespace ClinkedIn.DataAccess
                 Name = "Nathan Gonzalez",
                 DischargeDate = new DateTime(2099, 09, 09),
                 CrimeCharged = "Public Intoxication",
-                MyServices = new List<string> {"Hoochmaster"} ,
+                MyServices = new List<string> {"Hoochmaster", "Shankmaking"} ,
                 Crew = new List<string>{},
                 Clique = new List<string>{"Bob Bobertson", "Saul Solano" },
                 Beefs = new List<string>{ "Tom Thompson"},
@@ -73,7 +73,7 @@ namespace ClinkedIn.DataAccess
                 MyServices = new List<string> {"Hoochmaster"} ,
                 Crew = new List<string>{ },
                 Clique = new List<string>{"Saul Solano", "Silvestre Luna", "Nathan Gonzalez"},
-                Beefs = new List<string>{ "Bill Billingsley"},
+                Beefs = new List<string>{ "Bill Billingsley", "Tom Thompson"},
                 Interests = new List<string>{ "Reading", "Music", "Weightlifting"}
             },
 
@@ -199,5 +199,36 @@ namespace ClinkedIn.DataAccess
             inmateInterestUpdate.Interests = updatedInterests.Interests;
             return inmateInterestUpdate;
         }
+
+        public List<string> GetMyServices(int id)
+        {
+            var myServices = _inmates.FirstOrDefault(a => a.id == id);
+            if (myServices == null)
+            {
+                throw new Exception();
+            }
+            return myServices.MyServices;
+        }
+
+        public List<string> GetMyBeefs(int id)
+        {
+            var myBeefs = _inmates.FirstOrDefault(t => t.id == id);
+            if (myBeefs == null)
+            {
+                throw new Exception();
+            }
+            return myBeefs.Beefs;
+        }
+
+        public List<string> GetMyFriends(int id)
+        {
+            var myFriends = _inmates.FirstOrDefault(t => t.id == id);
+            if (myFriends == null)
+            {
+                throw new Exception();
+            }
+            return myFriends.Clique;
+        }
+
     }
 }

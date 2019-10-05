@@ -92,6 +92,36 @@ namespace ClinkedIn.Controllers
             var inmateInterestGotUpdated = repo.updateInmateInterest(updateInterest, id);
             return Ok(inmateInterestGotUpdated);
         }
+        [HttpGet("myservices/{id}")]
+        public ActionResult<IEnumerable<string>> GetInmateServices(int id)
+        {
+            var repo = new InmateRepository();
+            try
+            {
+                var myServices = repo.GetMyServices(id);
+                return myServices;
+            }
+            catch (Exception)
+            {
+                return BadRequest("Inmate ID does not exist");
+            }
 
+        }
+
+        [HttpGet("{id}/beefs")]
+        public ActionResult<IEnumerable<string>> GetInmateBeefs(int id)
+        {
+            var repo = new InmateRepository();
+            var myBeefs = repo.GetMyBeefs(id);
+            return myBeefs;
+        }
+
+        [HttpGet("{id}/friends")]
+        public ActionResult<IEnumerable<string>> GetMyFriends(int id)
+        {
+            var repo = new InmateRepository();
+            var myFriends = repo.GetMyFriends(id);
+            return myFriends;
+        }
     }
 }
