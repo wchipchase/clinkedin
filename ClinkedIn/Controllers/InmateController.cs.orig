@@ -26,8 +26,8 @@ namespace ClinkedIn.Controllers
         [HttpGet("{id}", Name = "Get")]
         public ActionResult<Inmate> GetById(int id)
         {
-<<<<<<< HEAD
-            return "value";                                                                                                                                         
+            var repo = new InmateRepository();
+            return repo.Get(id);
         }
 
         // Get: api/Inmate/interest
@@ -36,10 +36,6 @@ namespace ClinkedIn.Controllers
         {
             var repo = new InmateRepository();
             return Ok(repo.GetListOfInmatesByInterest(interest));
-=======
-            var repo = new InmateRepository();
-            return repo.Get(id);
->>>>>>> master
         }
 
         // POST: api/Inmate
@@ -50,7 +46,8 @@ namespace ClinkedIn.Controllers
             {
                 id = newInmateCommand.id,
                 Name = newInmateCommand.Name,
-                DischargeDate = newInmateCommand.DischargeDate,
+                ConvictedDate = newInmateCommand.ConvictedDate,
+                LengthOfSentence = newInmateCommand.LengthOfSentence,
                 CrimeCharged = newInmateCommand.CrimeCharged,
                 Crew = newInmateCommand.Crew,
                 Clique = newInmateCommand.Clique,
@@ -71,7 +68,8 @@ namespace ClinkedIn.Controllers
             var updatedInmate = new Inmate
             {
                 Name = updatedInmateCommand.Name,
-                DischargeDate = updatedInmateCommand.DischargeDate,
+                ConvictedDate = updatedInmateCommand.ConvictetdDate,
+                LengthOfSentence = updatedInmateCommand.LenghtOfSentence,
                 CrimeCharged = updatedInmateCommand.CrimeCharged,
                 Crew = updatedInmateCommand.Crew,
                 Clique = updatedInmateCommand.Clique,
@@ -82,5 +80,85 @@ namespace ClinkedIn.Controllers
             var inmateThatGotUpdated = repo.Update(updatedInmate, id);
             return Ok(inmateThatGotUpdated);
         }
+
+        // PUT: api/Inmate/id/interest
+        [HttpPut("{id}/interest")]
+        public IActionResult UpdateInmateInterest(UpdateInterestCommand updateInterestCommand, int id)
+        {
+            var repo = new InmateRepository();
+
+            var inmateInterestGotUpdated = repo.updateInmateInterest(updateInterestCommand.Interests, id);
+            return Ok(inmateInterestGotUpdated);
+        }
+
+        [HttpGet("myservices/{id}")]
+        public ActionResult<IEnumerable<string>> GetInmateServices(int id)
+        {
+            var repo = new InmateRepository();
+            try
+            {
+                var myServices = repo.GetMyServices(id);
+                return myServices;
+            }
+            catch (Exception)
+            {
+                return BadRequest("Inmate ID does not exist");
+            }
+
+        }
+
+        [HttpGet("{id}/beefs")]
+        public ActionResult<IEnumerable<string>> GetInmateBeefs(int id)
+        {
+            try
+            {
+                var repo = new InmateRepository();
+                var myBeefs = repo.GetMyBeefs(id);
+                return myBeefs;
+            }
+            catch(Exception)
+            {
+                return BadRequest("Inmate ID does not exist");
+            }
+
+        }
+
+        [HttpGet("{id}/friends")]
+        public ActionResult<IEnumerable<string>> GetMyFriends(int id)
+        {
+            try
+            {
+                var repo = new InmateRepository();
+                var myFriends = repo.GetMyFriends(id);
+                return myFriends;
+            }
+            catch (Exception)
+            {
+                return BadRequest("Inmate ID does not exist");
+            }
+        }
+
+        [HttpGet("{id}/sentence")]
+        public ActionResult<int> GetDaysLeftInSentence(int id)
+        {
+            var repo = new InmateRepository();
+            var inmate = repo.Get(id);
+            var today = DateTime.Now;
+            TimeSpan daysServed = inmate.ConvictedDate - today;
+            var daysServedAbs = Math.Abs(daysServed.Days);
+            var daysLeft = (inmate.LengthOfSentence - daysServedAbs);
+            return daysLeft;
+        }
+
+<<<<<<< HEAD
+        [HttpGet("mycrews/{id}")]
+        public ActionResult<List<string>> GetMyCrews(int id)
+        {
+            var repo = new InmateRepository();
+            var myCrews = repo.GetFriendsFriend(id);
+            return myCrews;
+        }
+=======
+>>>>>>> master
     }
 }

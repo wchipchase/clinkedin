@@ -91,7 +91,7 @@ namespace ClinkedIn.Controllers
             return Ok(inmateInterestGotUpdated);
         }
 
-        [HttpGet("myservices/{id}")]
+        [HttpGet("{id}/myservices")]
         public ActionResult<IEnumerable<string>> GetInmateServices(int id)
         {
             var repo = new InmateRepository();
@@ -150,5 +150,20 @@ namespace ClinkedIn.Controllers
             return daysLeft;
         }
 
+
+        [HttpGet("{id}/mycrews")]
+        public ActionResult<List<string>> GetMyCrews(int id)
+        {
+            try
+            {
+                var repo = new InmateRepository();
+                var myCrews = repo.GetFriendsFriend(id);
+                return myCrews;
+            }
+            catch (Exception)
+            {
+                return BadRequest("Inmate ID does not exist");
+            }
+        }
     }
 }

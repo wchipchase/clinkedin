@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using ClinkedIn.Commands;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ClinkedIn.DataAccess
@@ -16,8 +15,7 @@ namespace ClinkedIn.DataAccess
             {
                 id = 1,
                 Name = "Nathan Gonzalez",
-                ConvictedDate = new DateTime(2019, 09, 09),
-                LengthOfSentence = 7300,
+                DischargeDate = new DateTime(2099, 09, 09),
                 CrimeCharged = "Public Intoxication",
                 MyServices = new List<string> {"Hoochmaster", "Shankmaking"} ,
                 Crew = new List<string>{},
@@ -30,8 +28,7 @@ namespace ClinkedIn.DataAccess
             {
                 id = 2,
                 Name = "Martin Cross",
-                ConvictedDate = new DateTime(2015, 09, 09),
-                LengthOfSentence = 1800,
+                DischargeDate = new DateTime(2024, 06, 15),
                 CrimeCharged = "Reckless Endangerment",
                 MyServices = new List<string> {"Shankmaster"} ,
                 Crew = new List<string>{},
@@ -44,8 +41,7 @@ namespace ClinkedIn.DataAccess
             {
                 id = 3,
                 Name = "Silvestre Luna",
-                ConvictedDate = new DateTime(2019, 09, 09),
-                LengthOfSentence = 2000,
+                DischargeDate = new DateTime(2025, 09, 15),
                 CrimeCharged = "Indecent Exposure",
                 MyServices = new List<string> {"Bookie"} ,
                 Crew = new List<string>{ },
@@ -58,8 +54,7 @@ namespace ClinkedIn.DataAccess
             {
                 id = 4,
                 Name = "Saul Solano",
-                ConvictedDate = new DateTime(2017, 09, 09),
-                LengthOfSentence = 3000,
+                DischargeDate = new DateTime(2029, 01, 02),
                 CrimeCharged = "Assault and Battery",
                 MyServices = new List<string> {"Personal Protection"} ,
                 Crew = new List<string>{ },
@@ -68,12 +63,11 @@ namespace ClinkedIn.DataAccess
                 Interests = new List<string>{ "Drawing", "Music", "Reading"}
             },
 
-            new Inmate
+                        new Inmate
             {
                 id = 5,
                 Name = "Wayne Chipchase",
-                ConvictedDate = new DateTime(2013, 09, 09),
-                LengthOfSentence = 9000,
+                DischargeDate = new DateTime(2050, 06, 13),
                 CrimeCharged = "Poltics",
                 MyServices = new List<string> {"Hoochmaster"} ,
                 Crew = new List<string>{ },
@@ -86,8 +80,7 @@ namespace ClinkedIn.DataAccess
             {
                 id = 6,
                 Name = "Bob Bobertson",
-                ConvictedDate = new DateTime(2014, 09, 09),
-                LengthOfSentence = 60000,
+                DischargeDate = new DateTime(2099, 08, 11),
                 CrimeCharged = "Murder 1",
                 MyServices = new List<string> {"Shankmaster"} ,
                 Crew = new List<string>{"" },
@@ -100,8 +93,7 @@ namespace ClinkedIn.DataAccess
             {
                 id = 7,
                 Name = "Bill Billingsley",
-                ConvictedDate = new DateTime(2016, 09, 09),
-                LengthOfSentence = 60000,
+                DischargeDate = new DateTime(2099, 06, 20),
                 CrimeCharged = "Murder 1",
                 MyServices = new List<string> {"Bookie"} ,
                 Crew = new List<string>{"" },
@@ -114,12 +106,11 @@ namespace ClinkedIn.DataAccess
             {
                 id = 8,
                 Name = "Tom Thompson",
-                ConvictedDate = new DateTime(2017, 09, 13),
-                LengthOfSentence = 60000,
+                DischargeDate = new DateTime(2099, 06, 20),
                 CrimeCharged = "Murder 1",
                 MyServices = new List<string> {"Personal Protection"} ,
                 Crew = new List<string>{"" },
-                Clique = new List<string>{ "Stew Stewart", "Fredrickson", "Bill Billingsley" },
+                Clique = new List<string>{"Saul Solano", "Silvestre Luna", "Nathan Gonzalez" },
                 Beefs = new List<string>{ "MArtin Cross"},
                 Interests = new List<string>{  "Reading", "Music", "Weightlifting"}
             },
@@ -128,9 +119,8 @@ namespace ClinkedIn.DataAccess
             {
                 id = 9,
                 Name = "Fred Fredrickson",
-                ConvictedDate = new DateTime(2019, 08, 29),
-                LengthOfSentence = 17000,
-                CrimeCharged = "Murder 3",
+                DischargeDate = new DateTime(2099, 06, 20),
+                CrimeCharged = "Murder 1",
                 MyServices = new List<string> {"Hoochmaster"} ,
                 Crew = new List<string>{"" },
                 Clique = new List<string>{"Stew Stewart", "Tom Thompson" },
@@ -142,9 +132,8 @@ namespace ClinkedIn.DataAccess
             {
                 id = 10,
                 Name = "Stew Stewart",
-                ConvictedDate = new DateTime(2019, 07, 19),
-                LengthOfSentence = 5000,
-                CrimeCharged = "Murder 3",
+                DischargeDate = new DateTime(2099, 06, 20),
+                CrimeCharged = "Murder 1",
                 MyServices = new List<string> {"Shankmaster"} ,
                 Crew = new List<string>{ },
                 Clique = new List<string>{"Tom Thompson", "Fred Fredrickson" },
@@ -160,7 +149,7 @@ namespace ClinkedIn.DataAccess
 
         public Inmate Get(int id)
         {
-            var inmate = _inmates.FirstOrDefault(t => t.id == id);
+            var inmate = _inmates.First(t => t.id == id);
             return inmate;
         }
 
@@ -187,8 +176,7 @@ namespace ClinkedIn.DataAccess
         {
             var inmateToUpdate = _inmates.First(inmate => inmate.id == id);
             inmateToUpdate.Name = updatedInmate.Name;
-            inmateToUpdate.ConvictedDate = updatedInmate.ConvictedDate;
-            inmateToUpdate.LengthOfSentence = updatedInmate.LengthOfSentence;
+            inmateToUpdate.DischargeDate = updatedInmate.DischargeDate;
             inmateToUpdate.CrimeCharged = updatedInmate.CrimeCharged;
             inmateToUpdate.Beefs = updatedInmate.Beefs;
             inmateToUpdate.Clique = updatedInmate.Clique;
@@ -202,13 +190,6 @@ namespace ClinkedIn.DataAccess
         {
             _inmates.Add(newInmate);
             return newInmate;
-        }
-        
-        public Inmate updateInmateInterest(List<string> updatedInterests, int id) 
-        {
-            var inmateInterestUpdate = _inmates.FirstOrDefault(inmate => inmate.id == id);
-            inmateInterestUpdate.Interests.AddRange(updatedInterests);
-            return inmateInterestUpdate;
         }
 
         public List<string> GetMyServices(int id)
@@ -231,6 +212,13 @@ namespace ClinkedIn.DataAccess
             return myBeefs.Beefs;
         }
 
+<<<<<<< HEAD
+        public Inmate GetFriendsFriend(int id)
+        {
+            var something = Get(id);
+            return something;
+        }
+=======
         public List<string> GetMyFriends(int id)
         {
             var myFriends = _inmates.FirstOrDefault(t => t.id == id);
@@ -241,33 +229,6 @@ namespace ClinkedIn.DataAccess
             return myFriends.Clique;
         }
 
-
-        public List<string> GetFriendsFriend(int id)
-        {
-            List<string> friendsFriend = new List<string>();
-
-            try
-            {
-                var myFriends = GetMyFriends(id);
-
-                foreach (var aFriend in myFriends)
-                {
-                    var allInmates = GetAll();
-
-                    foreach(var inmate in allInmates)
-                    {
-                        if (aFriend == inmate.Name)
-                        {
-                            friendsFriend.AddRange(inmate.Clique);
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            return friendsFriend;
-        }
+>>>>>>> master
     }
 }
