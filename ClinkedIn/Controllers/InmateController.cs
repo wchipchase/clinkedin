@@ -79,6 +79,16 @@ namespace ClinkedIn.Controllers
             return Ok(inmateThatGotUpdated);
         }
 
+        // PUT: api/Inmate/id/interest
+        [HttpPut("{id}/interest")]
+        public IActionResult UpdateInmateInterest(UpdateInterestCommand updateInterestCommand, int id)
+        {
+            var repo = new InmateRepository();
+
+            var inmateInterestGotUpdated = repo.updateInmateInterest(updateInterestCommand.Interests, id);
+            return Ok(inmateInterestGotUpdated);
+        }
+
         [HttpGet("myservices/{id}")]
         public ActionResult<IEnumerable<string>> GetInmateServices(int id)
         {
