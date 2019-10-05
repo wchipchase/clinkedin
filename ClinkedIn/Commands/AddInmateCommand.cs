@@ -10,7 +10,8 @@ namespace ClinkedIn.Commands
         public int id { get; set; }
         public string Name { get; set; }
         public string CrimeCharged { get; set; }
-        public DateTime DischargeDate { get; set; }
+        public DateTime ConvictedDate { get; set; }
+        public int LengthOfSentence { get; set; }
         public List<string> MyServices { get; set; }
         public List<string> Crew { get; set; }
         public List<string> Clique { get; set; }
