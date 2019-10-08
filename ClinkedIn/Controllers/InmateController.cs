@@ -91,6 +91,15 @@ namespace ClinkedIn.Controllers
             return Ok(inmateInterestGotUpdated);
         }
 
+        // Delete: api/Inmate/id/interest/Reading
+        [HttpDelete("{id}/interest/{interest}")]
+        public IActionResult DeleteInmateInterest(int id, string interest)
+        {
+            var repo = new InmateRepository();
+            var interestToBeDeleted = repo.DeleteInmateInterest(id, interest);
+            return Ok(interestToBeDeleted);
+        }
+
         [HttpGet("{id}/myservices")]
         public ActionResult<IEnumerable<string>> GetInmateServices(int id)
         {

@@ -211,6 +211,13 @@ namespace ClinkedIn.DataAccess
             return inmateInterestUpdate;
         }
 
+        public object DeleteInmateInterest(int id, string interest)
+        {
+            var deleteInmateInterest = _inmates.FirstOrDefault(t => t.id == id);
+            deleteInmateInterest.Interests.Remove(interest);
+            return deleteInmateInterest;
+        }
+
         public List<string> GetMyServices(int id)
         {
             var myServices = _inmates.FirstOrDefault(a => a.id == id);
